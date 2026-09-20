@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <!-- Built to sit beside rss.svg: full-bleed tile, inset white glyph. Tile
+         color is set from CSS since this is inlined. -->
+    <rect width="24" height="24" rx="2" fill="currentColor"/>
+    <g fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3.95" y="6.75" width="16.1" height="10.5" rx="1.4"/>
+        <!-- Starts below where the corner radius ends, so the flap meets the
+             straight part of each side edge instead of the corner curve. -->
+        <path d="M3.95 8.4 12 13.2 20.05 8.4"/>
+    </g>
+</svg>
