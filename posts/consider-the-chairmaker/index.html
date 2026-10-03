@@ -1,11 +1,11 @@
 <!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><!-- Google tag (gtag.js) --><!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZN0HVXBFN4"></script>
-	<script is:inline>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		
-		gtag('config', 'G-ZN0HVXBFN4');
-	</script> --><link rel="alternate" type="application/rss+xml" href="/rss.xml" title="Blog RSS Feed"><link rel="sitemap" href="/sitemap-index.xml"><link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/_astro/apple-touch-icon.CBaaKE1V.png"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="generator" content="Astro v5.16.6"><title>Consider the chairmaker - Ben Stolovitz</title><meta name="description" content="Software engineering is currently artisanal, but AI is making software much cheaper to make. What can we learn from the history of industrial design? Can we bring taste into a world of programming no longer dominated by artisans?"><link rel="canonical" href="https://ben.stolovitz.com/posts/consider-the-chairmaker/"><meta property="og:url" content="https://ben.stolovitz.com/posts/consider-the-chairmaker/"><meta property="og:type" content="article"><meta property="og:title" content="Consider the chairmaker"><meta property="og:description" content="Software engineering is currently artisanal, but AI is making software much cheaper to make. What can we learn from the history of industrial design? Can we bring taste into a world of programming no longer dominated by artisans?"><meta property="og:sitename" content="ben.stolovitz.com"><meta property="og:image" content="/_astro/og.2pHlPosQ_zSmfy.png"><meta property="og:image:alt" content="A strawberry thief sits on a No. 14 chair"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="article:published_time" content="2026-04-21T00:00:00.000Z"><meta property="article:modified_time" content="2026-05-14T05:10:48.000Z"><meta property="article:author" content="Ben Stolovitz"><meta name="twitter:card" content="summary_large_image"><meta property="twitter:domain" content="ben.stolovitz.com"><meta property="twitter:url" content="https://ben.stolovitz.com/posts/consider-the-chairmaker/"><meta name="twitter:title" content="Consider the chairmaker"><meta name="twitter:description" content="Software engineering is currently artisanal, but AI is making software much cheaper to make. What can we learn from the history of industrial design? Can we bring taste into a world of programming no longer dominated by artisans?"><meta name="twitter:image" content="/_astro/og.2pHlPosQ_zSmfy.png"><script type="application/ld+json">{
+    <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZN0HVXBFN4');
+    </script> --><link rel="alternate" type="application/rss+xml" href="/rss.xml" title="Blog RSS Feed"><link rel="sitemap" href="/sitemap-index.xml"><link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/_astro/apple-touch-icon.CBaaKE1V.png"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="generator" content="Astro v5.16.6"><title>Consider the chairmaker - Ben Stolovitz</title><meta name="description" content="Software engineering is currently artisanal, but AI is making software much cheaper to make. What can we learn from the history of industrial design? Can we bring taste into a world of programming no longer dominated by artisans?"><link rel="canonical" href="https://ben.stolovitz.com/posts/consider-the-chairmaker/"><meta property="og:url" content="https://ben.stolovitz.com/posts/consider-the-chairmaker/"><meta property="og:type" content="article"><meta property="og:title" content="Consider the chairmaker"><meta property="og:description" content="Software engineering is currently artisanal, but AI is making software much cheaper to make. What can we learn from the history of industrial design? Can we bring taste into a world of programming no longer dominated by artisans?"><meta property="og:sitename" content="ben.stolovitz.com"><meta property="og:image" content="/_astro/og.2pHlPosQ_zSmfy.png"><meta property="og:image:alt" content="A strawberry thief sits on a No. 14 chair"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="article:published_time" content="2026-04-21T00:00:00.000Z"><meta property="article:modified_time" content="2026-05-14T05:10:48.000Z"><meta property="article:author" content="Ben Stolovitz"><meta name="twitter:card" content="summary_large_image"><meta property="twitter:domain" content="ben.stolovitz.com"><meta property="twitter:url" content="https://ben.stolovitz.com/posts/consider-the-chairmaker/"><meta name="twitter:title" content="Consider the chairmaker"><meta name="twitter:description" content="Software engineering is currently artisanal, but AI is making software much cheaper to make. What can we learn from the history of industrial design? Can we bring taste into a world of programming no longer dominated by artisans?"><meta name="twitter:image" content="/_astro/og.2pHlPosQ_zSmfy.png"><script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -50,42 +50,42 @@
 @keyframes _slideInFromLeft_149qr_1{0%{opacity:0}to{opacity:1}}._themeButton_149qr_9{appearance:none;border-radius:20rem;background:var(--table-alternate-background);border:0;font-size:.7rem;padding:.5rem;cursor:pointer;position:fixed;top:1.3rem;right:1rem;animation:.3s ease-out 0s 1 _slideInFromLeft_149qr_1}._themeButton_149qr_9:hover,._themeButton_149qr_9:focus{background:var(--link);color:var(--background);transform:none}._themeButton_149qr_9:active{transform:none}@media print{._themeButton_149qr_9{display:none}}
 </style><style>div[data-astro-cid-2d3dyapy]{display:flex;justify-content:space-between;align-items:center;gap:1rem}
 </style></head> <body> <script>
-		(function() {
-			// Duplicate of theme.ts
-			//
-			// Why? To immediately set the theme on page load.
-			// See https://www.joshwcomeau.com/react/dark-mode/.
-			// Adaptation: we also disable the transition on load.
-			function getCurrentTheme() {
-				if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-					return localStorage.getItem("theme");
-				}
-	
-				if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-					return "dark";
-				}
-				return "light";
-			}
+        (function() {
+            // Duplicate of theme.ts
+            //
+            // Why? To immediately set the theme on page load.
+            // See https://www.joshwcomeau.com/react/dark-mode/.
+            // Adaptation: we also disable the transition on load.
+            function getCurrentTheme() {
+                if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+                    return localStorage.getItem("theme");
+                }
 
-			// Add no-transition class to prevent transitions on load
-			console.log("Activating theme...");
-			document.documentElement.classList.add("no-transition");
-			const theme = getCurrentTheme();
-			const element = document.documentElement;
-			element.classList.toggle("dark", theme === "dark");
+                if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                    return "dark";
+                }
+                return "light";
+            }
 
-			// Request animation frame to ensure this runs after any other initial JS
-			requestAnimationFrame(() => {
-				document.documentElement.classList.remove("no-transition");
-			});
-		})();
+            // Add no-transition class to prevent transitions on load
+            console.log("Activating theme...");
+            document.documentElement.classList.add("no-transition");
+            const theme = getCurrentTheme();
+            const element = document.documentElement;
+            element.classList.toggle("dark", theme === "dark");
 
-		// Safari needs a kick to load all images before printing.
-		window.addEventListener("beforeprint", () => {
-			const images = document.querySelectorAll("img[loading=lazy]");
-			images.forEach((i) => i.removeAttribute("loading"));
-		});
-	</script>     <nav data-astro-cid-egg7nqdx> <a href="/" data-astro-cid-egg7nqdx>&larr; back home</a> </nav> <main data-astro-cid-egg7nqdx>  <article class="article" data-astro-cid-egg7nqdx> <h1 data-astro-cid-egg7nqdx>Consider the chairmaker</h1> <blockquote>
+            // Request animation frame to ensure this runs after any other initial JS
+            requestAnimationFrame(() => {
+                document.documentElement.classList.remove("no-transition");
+            });
+        })();
+
+        // Safari needs a kick to load all images before printing.
+        window.addEventListener("beforeprint", () => {
+            const images = document.querySelectorAll("img[loading=lazy]");
+            images.forEach((i) => i.removeAttribute("loading"));
+        });
+    </script>     <nav data-astro-cid-egg7nqdx> <a href="/" data-astro-cid-egg7nqdx>&larr; back home</a> </nav> <main data-astro-cid-egg7nqdx>  <article class="article" data-astro-cid-egg7nqdx> <h1 data-astro-cid-egg7nqdx>Consider the chairmaker</h1> <blockquote>
 <p>Now it is a good and desirable thing, truly, to make many pins in a day; but if we could only see with what crystal sand their points were polished,—sand of human soul, much to be magnified before it can be discerned for what it is,—we should think there might be some loss in it also.
 <span class="source">John Ruskin, <cite><a href="https://www.gutenberg.org/files/30755/30755-h/30755-h.htm#:~:text=Now%20it%20is%20a%20good%20and%20desirable%20thing%2C%20truly%2C%20to%20make%20many%20pins%20in%20a%20day;%20but%20if%20we%20could%20only%20see%20with%20what%20crystal%20sand%20their%20points%20were%20polished%2C%E2%80%94sand%20of%20human%20soul%2C%20much%20to%20be%20magnified%20before%20it%20can%20be%20discerned%20for%20what%20it%20is%2C%E2%80%94we%20should%20think%20there%20might%20be%20some%20loss%20in%20it%20also.">Stones of Venice, Vol. 2</a></cite>, 1892</span></p>
 </blockquote>

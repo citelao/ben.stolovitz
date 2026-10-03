@@ -1,11 +1,11 @@
 <!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><!-- Google tag (gtag.js) --><!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZN0HVXBFN4"></script>
-	<script is:inline>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		
-		gtag('config', 'G-ZN0HVXBFN4');
-	</script> --><link rel="alternate" type="application/rss+xml" href="/rss.xml" title="Blog RSS Feed"><link rel="sitemap" href="/sitemap-index.xml"><link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/_astro/apple-touch-icon.CBaaKE1V.png"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="generator" content="Astro v5.16.6"><title>Resize a window in WinUI (part 1: find the DPI) - Ben Stolovitz</title><meta name="description" content="To resize a window, you must know its DPI. Let's figure it out."><link rel="canonical" href="https://ben.stolovitz.com/posts/resize_winui_window_part_1_find_dpi/"><meta property="og:url" content="https://ben.stolovitz.com/posts/resize_winui_window_part_1_find_dpi/"><meta property="og:type" content="article"><meta property="og:title" content="Resize a window in WinUI (part 1: find the DPI)"><meta property="og:description" content="To resize a window, you must know its DPI. Let's figure it out."><meta property="og:sitename" content="ben.stolovitz.com"><meta property="og:image" content="/_astro/win-ui-resize-1-og.B7hoBGFO_2d8XmK.png"><meta property="og:image:alt" content="A confused person looks at two 800 by 800 windows, each a different size"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="article:published_time" content="2025-06-21T00:00:00.000Z"><meta property="article:modified_time" content="2026-05-14T05:10:48.000Z"><meta property="article:author" content="Ben Stolovitz"><meta name="twitter:card" content="summary_large_image"><meta property="twitter:domain" content="ben.stolovitz.com"><meta property="twitter:url" content="https://ben.stolovitz.com/posts/resize_winui_window_part_1_find_dpi/"><meta name="twitter:title" content="Resize a window in WinUI (part 1: find the DPI)"><meta name="twitter:description" content="To resize a window, you must know its DPI. Let's figure it out."><meta name="twitter:image" content="/_astro/win-ui-resize-1-og.B7hoBGFO_2d8XmK.png"><script type="application/ld+json">{
+    <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-ZN0HVXBFN4');
+    </script> --><link rel="alternate" type="application/rss+xml" href="/rss.xml" title="Blog RSS Feed"><link rel="sitemap" href="/sitemap-index.xml"><link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" href="/_astro/apple-touch-icon.CBaaKE1V.png"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="generator" content="Astro v5.16.6"><title>Resize a window in WinUI (part 1: find the DPI) - Ben Stolovitz</title><meta name="description" content="To resize a window, you must know its DPI. Let's figure it out."><link rel="canonical" href="https://ben.stolovitz.com/posts/resize_winui_window_part_1_find_dpi/"><meta property="og:url" content="https://ben.stolovitz.com/posts/resize_winui_window_part_1_find_dpi/"><meta property="og:type" content="article"><meta property="og:title" content="Resize a window in WinUI (part 1: find the DPI)"><meta property="og:description" content="To resize a window, you must know its DPI. Let's figure it out."><meta property="og:sitename" content="ben.stolovitz.com"><meta property="og:image" content="/_astro/win-ui-resize-1-og.B7hoBGFO_2d8XmK.png"><meta property="og:image:alt" content="A confused person looks at two 800 by 800 windows, each a different size"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="article:published_time" content="2025-06-21T00:00:00.000Z"><meta property="article:modified_time" content="2026-05-14T05:10:48.000Z"><meta property="article:author" content="Ben Stolovitz"><meta name="twitter:card" content="summary_large_image"><meta property="twitter:domain" content="ben.stolovitz.com"><meta property="twitter:url" content="https://ben.stolovitz.com/posts/resize_winui_window_part_1_find_dpi/"><meta name="twitter:title" content="Resize a window in WinUI (part 1: find the DPI)"><meta name="twitter:description" content="To resize a window, you must know its DPI. Let's figure it out."><meta name="twitter:image" content="/_astro/win-ui-resize-1-og.B7hoBGFO_2d8XmK.png"><script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -50,42 +50,42 @@
 @keyframes _slideInFromLeft_149qr_1{0%{opacity:0}to{opacity:1}}._themeButton_149qr_9{appearance:none;border-radius:20rem;background:var(--table-alternate-background);border:0;font-size:.7rem;padding:.5rem;cursor:pointer;position:fixed;top:1.3rem;right:1rem;animation:.3s ease-out 0s 1 _slideInFromLeft_149qr_1}._themeButton_149qr_9:hover,._themeButton_149qr_9:focus{background:var(--link);color:var(--background);transform:none}._themeButton_149qr_9:active{transform:none}@media print{._themeButton_149qr_9{display:none}}
 </style><style>.fraction[data-astro-cid-ri6qmbkg]{display:inline-flex;flex-direction:column;align-items:stretch;text-align:center;margin:.5rem 0;justify-content:center}.numerator[data-astro-cid-ri6qmbkg]{border-bottom:1px solid var(--foreground)}.divider[data-astro-cid-ri6qmbkg]{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
 </style></head> <body> <script>
-		(function() {
-			// Duplicate of theme.ts
-			//
-			// Why? To immediately set the theme on page load.
-			// See https://www.joshwcomeau.com/react/dark-mode/.
-			// Adaptation: we also disable the transition on load.
-			function getCurrentTheme() {
-				if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-					return localStorage.getItem("theme");
-				}
-	
-				if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-					return "dark";
-				}
-				return "light";
-			}
+        (function() {
+            // Duplicate of theme.ts
+            //
+            // Why? To immediately set the theme on page load.
+            // See https://www.joshwcomeau.com/react/dark-mode/.
+            // Adaptation: we also disable the transition on load.
+            function getCurrentTheme() {
+                if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+                    return localStorage.getItem("theme");
+                }
 
-			// Add no-transition class to prevent transitions on load
-			console.log("Activating theme...");
-			document.documentElement.classList.add("no-transition");
-			const theme = getCurrentTheme();
-			const element = document.documentElement;
-			element.classList.toggle("dark", theme === "dark");
+                if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                    return "dark";
+                }
+                return "light";
+            }
 
-			// Request animation frame to ensure this runs after any other initial JS
-			requestAnimationFrame(() => {
-				document.documentElement.classList.remove("no-transition");
-			});
-		})();
+            // Add no-transition class to prevent transitions on load
+            console.log("Activating theme...");
+            document.documentElement.classList.add("no-transition");
+            const theme = getCurrentTheme();
+            const element = document.documentElement;
+            element.classList.toggle("dark", theme === "dark");
 
-		// Safari needs a kick to load all images before printing.
-		window.addEventListener("beforeprint", () => {
-			const images = document.querySelectorAll("img[loading=lazy]");
-			images.forEach((i) => i.removeAttribute("loading"));
-		});
-	</script>     <nav data-astro-cid-egg7nqdx> <a href="/" data-astro-cid-egg7nqdx>&larr; back home</a> </nav> <main data-astro-cid-egg7nqdx>  <article class="article" data-astro-cid-egg7nqdx> <h1 data-astro-cid-egg7nqdx>Resize a window in WinUI (part 1: find the DPI)</h1> <p>Let’s continue our work to resize a WinUI 3 app with the <code>AppWindow</code> resizing APIs, like <a href="https://learn.microsoft.com/en-us/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.moveandresize?view=windows-app-sdk-1.7"><code>AppWindow.MoveAndResize</code></a>.</p>
+            // Request animation frame to ensure this runs after any other initial JS
+            requestAnimationFrame(() => {
+                document.documentElement.classList.remove("no-transition");
+            });
+        })();
+
+        // Safari needs a kick to load all images before printing.
+        window.addEventListener("beforeprint", () => {
+            const images = document.querySelectorAll("img[loading=lazy]");
+            images.forEach((i) => i.removeAttribute("loading"));
+        });
+    </script>     <nav data-astro-cid-egg7nqdx> <a href="/" data-astro-cid-egg7nqdx>&larr; back home</a> </nav> <main data-astro-cid-egg7nqdx>  <article class="article" data-astro-cid-egg7nqdx> <h1 data-astro-cid-egg7nqdx>Resize a window in WinUI (part 1: find the DPI)</h1> <p>Let’s continue our work to resize a WinUI 3 app with the <code>AppWindow</code> resizing APIs, like <a href="https://learn.microsoft.com/en-us/windows/windows-app-sdk/api/winrt/microsoft.ui.windowing.appwindow.moveandresize?view=windows-app-sdk-1.7"><code>AppWindow.MoveAndResize</code></a>.</p>
 
 <picture> <source srcset="/_astro/header-dark.BTNmgkaE_2jkuw8.webp 400w, /_astro/header-dark.BTNmgkaE_N3eqQ.webp 600w, /_astro/header-dark.BTNmgkaE_ZFL7T7.webp 800w, /_astro/header-dark.BTNmgkaE_2q6RGH.webp 1200w" type="image/webp">  <img src="/_astro/header-dark.BTNmgkaE_Z1iFLst.png" srcset="/_astro/header-dark.BTNmgkaE_Z1iFLst.png 400w, /_astro/header-dark.BTNmgkaE_2ge6gb.png 600w, /_astro/header-dark.BTNmgkaE_LoIUd.png 800w, /_astro/header-dark.BTNmgkaE_1XPpTs.png 1200w" alt="A confused person compares two differently-sized boxes both labeled '800 x 800'" loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 400px) 400px, 100vw" style="--fit: cover; --pos: center;" data-astro-image="constrained" width="400" height="209" class="key_image light-hidden"> </picture> <picture> <source srcset="/_astro/header.JMlILAYe_5Vbba.webp 400w, /_astro/header.JMlILAYe_ChIDj.webp 600w, /_astro/header.JMlILAYe_Z2kNWKX.webp 800w, /_astro/header.JMlILAYe_ZWd7ry.webp 1200w" type="image/webp">  <img src="/_astro/header.JMlILAYe_1Iwlyx.png" srcset="/_astro/header.JMlILAYe_1Iwlyx.png 400w, /_astro/header.JMlILAYe_2fRT1G.png 600w, /_astro/header.JMlILAYe_ZHdMnA.png 800w, /_astro/header.JMlILAYe_Z1bOhKd.png 1200w" alt="A confused person compares two differently-sized boxes both labeled '800 x 800'" loading="lazy" decoding="async" fetchpriority="auto" sizes="(min-width: 400px) 400px, 100vw" style="--fit: cover; --pos: center;" data-astro-image="constrained" width="400" height="209" class="key_image dark-hidden"> </picture>
 <p>In <a href="/posts/resize_winui_window_part_0_dpi">Part 0</a>, we explored DPI on Windows: WinUI pixels are typically <strong>device-independent pixels</strong> (DIPs), but <code>MoveAndResize</code> expects <strong>physical pixels</strong>. To let us continue working in DIP-space, we simply need to convert our DIPs to physical pixels. From Part 0:</p>
